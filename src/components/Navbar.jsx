@@ -5,6 +5,7 @@ import {HomeOutlined, MoneyCollectOutlined, CollectOutlined, BulbOutlined, FundO
 import icon from '../images/cryptocurrency.png';
 
 function Navbar() {
+  const { Item } = Menu;
   return (
     <div className="nav-container">
       <div className="logo-container">
@@ -15,18 +16,18 @@ function Navbar() {
         {/* <Button className="menu-control-container"></Button> */}
       </div>    
       <Menu theme="dark">
-        <Menu.Item icon={<HomeOutlined />}>
+        <Item key="home" icon={<HomeOutlined />}>
           <Link to="/"> Home</Link>
-        </Menu.Item>
-        <Menu.Item icon={<FundOutlined />}>
+        </Item>
+        <Item key="cryptocurrencies" icon={<FundOutlined />}>
           <Link to="/cryptocurrencies">Cryptocurrencies</Link>
-        </Menu.Item>
-        <Menu.Item icon={<MoneyCollectOutlined />}>
+        </Item>
+        <Item key="exchange" icon={<MoneyCollectOutlined />}>
           <Link to="/exchanges"> Exchange</Link>
-        </Menu.Item>
-        <Menu.Item icon={<BulbOutlined />}>
+        </Item>
+        <Item key="news" icon={<BulbOutlined />}>
           <Link to="/news"> News</Link>
-        </Menu.Item>
+        </Item>
       </Menu>
     </div>
   )
