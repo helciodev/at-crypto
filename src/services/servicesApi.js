@@ -20,7 +20,7 @@ export const coinRankApi = createApi({
   baseQuery: fetchBaseQuery({baseUrl}),
   endpoints: (builder) => ({
     getCryptos: builder.query({
-      query: () => createRequest('/coins')
+      query: (count) => createRequest(`/coins?limit=${count}`)
     })
   })
 

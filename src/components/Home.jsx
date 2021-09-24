@@ -9,8 +9,8 @@ import News from './News';
 const { Title } = Typography
 
 function Home() {
-  const { data, isFetching } = useGetCryptosQuery()
-  if(!isFetching) console.log(data.data)
+  const { data, isFetching } = useGetCryptosQuery(10)
+  // if(!isFetching) console.log(data.data)
    return (
     <>
       <Title level={2} className="heading">
