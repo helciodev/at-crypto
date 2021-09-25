@@ -15,13 +15,10 @@ function CryptoCurrencies({ simplified  }) {
       setFiltered(event.target.value)
     }
 
-    if (!isFetching) console.log(cryptoList);
-
     useEffect(() => {
-      const filteredData = cryptoList.data.coins.filter((coin) => coin.name.toLowerCase().includes(filtered.toLowerCase()));
-      setCurrencies(filteredData);
-    }, [filtered]) // will be called into action everytime there is a change in filtered;
-    
+      !isFetching && setCurrencies(cryptoList.data.coins.filter((coin) => coin.name.toLowerCase().includes(filtered.toLowerCase())))
+    }, [cryptoList,filtered]) // will be called into action everytime there is a change in filtered;
+  
   return (
     <>
     <div className="search-crypto">

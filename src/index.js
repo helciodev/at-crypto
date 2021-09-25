@@ -6,7 +6,7 @@ import store from './app/store';
 
 import App from './App';
 import 'antd/dist/antd.css';
-console.log(store.getState());
+
 ReactDOM.render(
   <BrowserRouter>
   <Provider store={store}>
