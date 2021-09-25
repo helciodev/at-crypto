@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import millify from 'millify';
 import {Typography, Row, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ const { Title } = Typography
 
 function Home() {
   const { data, isFetching } = useGetCryptosQuery(10)
-  // if(!isFetching) console.log(data.data)
+  
    return (
     <>
       <Title level={2} className="heading">

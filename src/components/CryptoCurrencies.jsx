@@ -11,21 +11,23 @@ function CryptoCurrencies({ simplified  }) {
    const [currencies, setCurrencies] = useState([]);
     const [filtered, setFiltered] = useState('');
 
-    function filterCurrency(event){
-      console.log(event.target.value)
+    function seFilter(event){
       setFiltered(event.target.value)
-      const filteredData = cryptoList.data.coins.filter((currency) => currency.name.toLowerCase().includes(filtered.toLowerCase()))
-      setCurrencies(filteredData)
     }
+
+    if (!isFetching) console.log(cryptoList);
+
     useEffect(() => {
-      if(!isFetching) setCurrencies(cryptoList.data.coins)
-    })
+      const filteredData = cryptoList.data.coins.filter((coin) => coin.name.toLowerCase().includes(filtered.toLowerCase()));
+      setCurrencies(filteredData);
+    }, [filtered]) // will be called into action everytime there is a change in filtered;
+    
   return (
     <>
     <div className="search-crypto">
-      <Input placeholder="search cryptocurrency" onChange={filterCurrency}/>
+      { !simplified && <Input placeholder="search cryptocurrency" onChange={seFilter}/> } 
     </div>
-    <Row gutter={[32, 32]} className="crypto-card-container">
+    <Row gutter={[24, 24]} className="crypto-card-container">
       { currencies.length > 2 && currencies.map((currency) => ( 
       <Col xs={24} sm={12} lg={6} key={currency.id} className="crypto-card">
         <Link to={`/crypto/${currency.id}`}>
