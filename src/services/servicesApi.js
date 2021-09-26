@@ -15,11 +15,15 @@ export const coinRankApi = createApi({
   endpoints: (builder) => ({
     getCryptos: builder.query({
       query: (count) => createRequest(`/coins?limit=${count}`)
+    }),
+    getDetails: builder.query({
+      query: (coinId) => createRequest(`/coin/${coinId}`)
     })
   })
 
 })
 
 export const {
-  useGetCryptosQuery
+  useGetCryptosQuery, 
+  useGetDetailsQuery,
 } = coinRankApi
